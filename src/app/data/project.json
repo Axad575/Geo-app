@@ -1,0 +1,26 @@
+[
+        {
+            "id": 1,
+            "name": "Project Alpha",
+            "description": "This is the first project.",
+            "startDate": "2023-01-01",
+            "endDate": "2023-06-30",
+            "status": "Completed"
+        },
+        {
+            "id": 2,
+            "name": "Project Beta",
+            "description": "This is the second project.",
+            "startDate": "2023-02-15",
+            "endDate": "2023-12-31",
+            "status": "In Progress"
+        },
+        {
+            "id": 3,
+            "name": "Project Gamma",
+            "description": "This is the third project.",
+            "startDate": "2023-03-01",
+            "endDate": "2023-09-30",
+            "status": "Not Started"
+        }
+]

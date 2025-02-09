@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "password": "password123",
+        "role": "admin",
+        "phone": "123-456-7890",
+        "groups": ["group1", "group2"],
+        "username": "johndoe",
+        "status": "not active",
+        "darkMode": "false"
+    },
+    {
+        "id": 2,
+        "name": "Mary Johnson",
+        "email": "maryjohnson@example.com",
+        "password": "password456",
+        "role": "user",
+        "phone": "123-456-7890",
+        "groups": ["group1", "group2"],
+        "username": "maryjohnson",
+        "status": "not active",
+        "darkMode": "false"
+    },
+    {
+        "id": 3,
+        "name": "Jane Smith",
+        "email": "jane.smith@example.com",
+        "password": "securepassword",
+        "role": "user",
+        "phone": "234-567-8901",
+        "groups": ["group1", "group2"],
+        "username": "janesmith",
+        "location": "New York",
+        "status": "not active",
+        "darkMode": "true"
+
+    },
+    {
+        "id": 4,
+        "name": "Alice Johnson",
+        "email": "alice.johnson@example.com",
+        "password": "mypassword",
+        "role": "user",
+        "phone": "345-678-9012",
+        "groups": ["group1", "group2"],
+        "username": "alicejohnson",
+        "status": "not active",
+        "darkMode": "false"
+
+    },
+    {
+        "id": 5,
+        "name": "Bob Brown",
+        "email": "bob.brown@example.com",
+        "password": "anotherpassword",
+        "role": "user",
+        "phone": "456-789-0123",
+        "groups": ["group1", "group2"],
+        "username": "bobbrown",
+        "status": "not active",
+        "darkMode": "false"
+
+    }
+]
