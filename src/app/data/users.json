@@ -8,7 +8,7 @@
         "phone": "123-456-7890",
         "groups": ["group1", "group2"],
         "username": "johndoe",
-        "status": "not active",
+        "status": "active",
         "darkMode": "false"
     },
     {

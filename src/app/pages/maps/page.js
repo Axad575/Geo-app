@@ -1,6 +1,12 @@
 "use client"
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { MapContainer, TileLayer, FeatureGroup, useMap } from "react-leaflet";
+import { EditControl } from "react-leaflet-draw";
+import "leaflet/dist/leaflet.css";
+import "leaflet-draw/dist/leaflet.draw.css";
+import "leaflet-easyprint/dist/bundle.js"
+import L, { drawLocal } from "leaflet";
 import users from '@/app/data/users.json';
 
 
@@ -76,12 +82,6 @@ export default function Home() {
     user.darkMode = false;
   }
 
-  if (user.darkMode === true) {
-    document.body.classList.add('dark');
-  } else {
-    document.body.classList.remove('dark');
-  }
-
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
@@ -107,6 +107,25 @@ export default function Home() {
   const ProfileDropdown = () => {
     setIsProfile(!isProfile);
   }
+
+  const PrintControl = () => {
+    const map = useMap();
+
+    useEffect(() => {
+      const printer = L.easyPrint({
+        title: 'Print map',
+        position: 'topright',
+        sizeModes: ['Current', 'A4Portrait', 'A4Landscape'],
+        exportOnly: true, // This option will help to export the map without opening a new window
+      }).addTo(map);
+
+      return () => {
+        map.removeControl(printer);
+      };
+    }, [map]);
+
+    return null;
+  };
   return (
     // <div>
     //   <nav className="flex items-center justify-between flex-wrap bg-gray-900 p-6">
@@ -304,9 +323,36 @@ export default function Home() {
           <div id="map" className="w-1/2 h-1/2">
           </div> */}
           <h1 className="font-sans font-semibold text-4xl text-center">Maps</h1>
-          <div className="grid  m-12 p-7 rounded-xl">
-              <h1 className="text-center text-3xl font-bold">Maps Page is developing... </h1>
-              <p className="text-center text-xl">Please wait for the next update</p>
+         <div className="grid m-6 p-2 rounded-xl">
+            <MapContainer center={[40.505, 63.25]} zoom={5} style={{ height: "60dvh", width: "150dvh" }}>
+              <TileLayer
+                className="w-96 h-96"
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              />
+              <FeatureGroup >
+                <EditControl
+                  position="topright"
+                  onEdited={(e) => {
+                    console.log("Edited:", e);
+                  }}
+                  onCreated={(e) => {
+                    console.log("Created:", e);
+                  }}
+                  onDeleted={(e) => {
+                    console.log("Deleted:", e);
+                  }}
+                  draw={{
+                    rectangle: true,
+                    polyline: true,
+                    polygon: true,
+                    circle: true,
+                    marker: true,
+                  }}
+                />
+              </FeatureGroup>
+              <PrintControl />
+            </MapContainer>
           </div>
         </div>
       </div>

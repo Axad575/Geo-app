@@ -56,12 +56,6 @@ export default function Home() {
     user.darkMode = false;
   }
 
-  if (user.darkMode === true) {
-    document.body.classList.add('dark');
-  } else {
-    document.body.classList.remove('dark');
-  }
-
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
@@ -199,6 +193,5 @@ export default function Home() {
         </div>
       </div>
     </div>
-
   );
 }
